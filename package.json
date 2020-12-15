@@ -19,8 +19,10 @@
   "bugs": {
     "url": "https://github.com/hans-lizihan/bull-master/issues"
   },
+  "precommit": [
+    "build"
+  ],
   "scripts": {
-    "prepare": "yarn build",
     "lint": "eslint client/**/*.{js,jsx} server/**/*.js && commitlint ci",
     "build": "yarn build:clean && yarn build:ui",
     "build:publish": "yarn build",
