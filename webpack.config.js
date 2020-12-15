@@ -8,7 +8,7 @@ module.exports = {
       ? 'cheap-module-eval-source-map'
       : false,
 
-  entry: ['./client/index.jsx'],
+  entry: `${path.resolve(__dirname)  }/client/index.jsx`,
   output: {
     filename: 'bundle.js',
   },
