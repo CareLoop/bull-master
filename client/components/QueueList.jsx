@@ -8,6 +8,7 @@ import Title from './Title';
 import Status from './Status';
 
 const QueueList = ({ queues }) => {
+  queues = queues.sort((a, b) => a.name - b.name);
   return queues.map(
     ({
       name,

@@ -62,7 +62,7 @@ export default function Layout({ children }) {
             noWrap
             className={classes.title}
           >
-            Dashboard
+            Careloop Jobs Dashboard
           </Typography>
         </Toolbar>
       </AppBar>
