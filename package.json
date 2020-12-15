@@ -20,11 +20,13 @@
     "url": "https://github.com/hans-lizihan/bull-master/issues"
   },
   "precommit": [
-    "build"
+    "build",
+    "add:dist"
   ],
   "scripts": {
     "lint": "eslint client/**/*.{js,jsx} server/**/*.js && commitlint ci",
     "build": "yarn build:clean && yarn build:ui",
+    "add:dist": "git add ./dist/*",
     "build:publish": "yarn build",
     "build:ui": "NODE_ENV=production webpack",
     "build:clean": "rm -rf ./static ./dist",
