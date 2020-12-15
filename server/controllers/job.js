@@ -4,6 +4,9 @@ module.exports = async (req, res) => {
   const { bullMasterQueues } = req.app.locals;
   const { queueName } = req.params;
   const queue = bullMasterQueues[queueName];
+  if (!queue) {
+    return res.status(404).json({ message: 'queue is not defined' });
+  }
   const job = await queue.getJob(req.params.jobId);
   if (!job) {
     res.status(404).json({ message: 'Cant locate the job' });
@@ -15,7 +18,7 @@ module.exports = async (req, res) => {
   if (status !== 'delayed') {
     formattedJob.delayedTo = null;
   }
-  res.json({
+  return res.json({
     ...formattedJob,
     ...job.toJSON(),
     status,
