@@ -15,7 +15,7 @@ module.exports = async (req, res) => {
   const counts = await queue.getJobCounts(status);
   const start = page * pageSize;
   const end = start + pageSize - 1;
-  const jobs = await queue.getJobs([status], start, end);
+  let jobs = await queue.getJobs([status], start, end);
   jobs = jobs.filter(job => {
     if (!job) {
       console.debug("null job found");
